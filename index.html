@@ -23,6 +23,12 @@
             width: 100vw;
         }
 
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
         select {
             font-family: PM;
             background-color: rgb(10, 10, 10);
@@ -74,19 +80,21 @@
 </head>
 
 <body>
-    <select id="years"></select>
-    <h3 id="desc-title">
-        You reached for the secret too soon, you cried for the moon.
-        <br>
-        <b>Shine on you crazy diamond!</b>
-    </h3>
-    <a href="#" id="link">
-        <img src="#" alt="" id="image">
-    </a>
-    <div id="desc">
+    <div class="container">
+        <select id="years"></select>
+        <h3 id="desc-title">
+            You reached for the secret too soon, you cried for the moon.
+            <br>
+            <b>Shine on you crazy diamond!</b>
+        </h3>
+        <a href="#" id="link">
+            <img src="#" alt="" id="image">
+        </a>
+        <div id="desc">
 
-        <br>
-        <p id="desc-text"></p>
+            <br>
+            <p id="desc-text"></p>
+        </div>
     </div>
     <script>
         const yearSelect = document.getElementById('years');
