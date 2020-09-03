@@ -124,7 +124,8 @@
             let data = await response.json();
 
             if (data.code) {
-                apodDescription.textContent = 'Nije moguće trenutno dobiti sliku. Probaj da osvežiš stranicu.';
+                apodImage.src = "2020.jpg";
+                apodDescription.textContent = 'Srećan rođendan!!!';
 
             } else {
                 apodImage.src = data.url;
