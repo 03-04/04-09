@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delić tvog univerzuma</title>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+        }
+
+        select {
+            background-color: rgb(10, 10, 10);
+            border: 1px solid rgb(57, 57, 57);
+            border-radius: 5px;
+            color: rgb(54, 147, 253);
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 1rem;
+            text-align: center;
+            width: 95vw;
+        }
+
+        img,
+        p {
+            background-color: rgb(10, 10, 10);
+            border: 1px solid rgb(57, 57, 57);
+            border-radius: 5px;
+            color: rgb(54, 147, 253);
+            display: inline-block;
+            padding: 0.5rem;
+            text-align: justify;
+            width: calc(95vw - 1rem);
+        }
+
+        #desc-title {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <select id="years"></select>
+        <a href="#" id="link">
+            <img src="#" alt="" id="image">
+        </a>
+        <div id="desc">
+            <h3 id="desc-title">Opis</h3>
+            <br>
+            <p id="desc-text"></p>
+        </div>
+    </div>
+    <script>
+        const root = document.getElementById('root');
+
+        const yearSelect = document.getElementById('years');
+        yearSelect.addEventListener('change', (e) => {
+            let year = e.target.value;
+            getImage(year);
+            localStorage.setItem('year', year);
+        });
+
+        for (let i = 2020; i >= 1996; i--) {
+            let yearOpt = document.createElement('option');
+            yearOpt.value = i;
+            yearOpt.textContent = i;
+            yearSelect.appendChild(yearOpt);
+        }
+
+        const apodImage = document.getElementById('image');
+        const apodLink = document.getElementById('link');
+        const apodDescription = document.getElementById('desc');
+
+        function getImage(year) {
+            fetch(`https://deo-tvog-univerzuma.netlify.app/.netlify/functions/service?year=${year}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.code) {
+                        apodDescription.innerHTML = 'Nije moguće trenutno dobiti sliku. Probaj da osvežiš stranicu.';
+
+                    } else {
+                        apodImage.src = data.url;
+                        apodLink.href = data.url;
+                        apodDescription.innerHTML = data.explanation;
+                        apodLink.download = `04.09.${year}`;
+                    }
+                });
+        }
+
+        let savedYear = localStorage.getItem('year');
+        if (savedYear) {
+            getImage(savedYear);
+            yearSelect.value = savedYear;
+        } else {
+            getImage(yearSelect.value);
+        }
+
+    </script>
+</body>
+
+</html>
