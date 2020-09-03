@@ -102,6 +102,10 @@
     </div>
     <script>
         const yearSelect = document.getElementById('years');
+        const apodImage = document.getElementById('image');
+        const apodLink = document.getElementById('link');
+        const apodDescription = document.getElementById('desc-text');
+
         yearSelect.addEventListener('change', (e) => {
             let year = e.target.value;
 
@@ -121,9 +125,23 @@
             yearSelect.appendChild(yearOpt);
         }
 
-        const apodImage = document.getElementById('image');
-        const apodLink = document.getElementById('link');
-        const apodDescription = document.getElementById('desc-text');
+        let savedYear = localStorage.getItem('year');
+        if (savedYear) {
+            if (savedYear === 2020) {
+                apodImage.src = "2020.jpg";
+                apodDescription.textContent = 'Ćubbb';
+            } else {
+                getImage(savedYear);
+                yearSelect.value = savedYear;
+            }
+        } else {
+            if (savedYear === 2020) {
+                apodImage.src = "2020.jpg";
+                apodDescription.textContent = 'Ćubbb';
+            } else {
+                getImage(savedYear);
+            }
+        }
 
         async function getImage(year) {
             let response = await fetch(`./.netlify/functions/service?year=${year}`);
@@ -140,15 +158,6 @@
                 apodLink.download = `04.09.${year}`;
             }
         }
-
-        let savedYear = localStorage.getItem('year');
-        if (savedYear) {
-            getImage(savedYear);
-            yearSelect.value = savedYear;
-        } else {
-            getImage(yearSelect.value);
-        }
-
     </script>
 </body>
 
