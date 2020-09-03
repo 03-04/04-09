@@ -74,20 +74,19 @@
         const apodLink = document.getElementById('link');
         const apodDescription = document.getElementById('desc');
 
-        function getImage(year) {
-            fetch(`https://deo-tvog-univerzuma.netlify.app/.netlify/functions/service?year=${year}`, { mode: "no-cors" })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.code) {
-                        apodDescription.innerHTML = 'Nije moguće trenutno dobiti sliku. Probaj da osvežiš stranicu.';
+        async function getImage(year) {
+            let response = await fetch(`https://deo-tvog-univerzuma.netlify.app/.netlify/functions/service?year=${year}`);
+            let data = await response.json();
 
-                    } else {
-                        apodImage.src = data.url;
-                        apodLink.href = data.url;
-                        apodDescription.innerHTML = data.explanation;
-                        apodLink.download = `04.09.${year}`;
-                    }
-                });
+            if (data.code) {
+                apodDescription.innerHTML = 'Nije moguće trenutno dobiti sliku. Probaj da osvežiš stranicu.';
+
+            } else {
+                apodImage.src = data.url;
+                apodLink.href = data.url;
+                apodDescription.innerHTML = data.explanation;
+                apodLink.download = `04.09.${year}`;
+            }
         }
 
         let savedYear = localStorage.getItem('year');
