@@ -111,11 +111,11 @@
 
             if (year == 2020) {
                 apodImage.src = "2020.jpg";
-                apodDescription.textContent = 'Ćubbb';
+                apodDescription.textContent = 'Ćub';
             } else {
                 getImage(year);
-                localStorage.setItem('year', year);
             }
+            localStorage.setItem('year', year);
         });
 
         for (let i = 2020; i >= 1998; i--) {
@@ -129,7 +129,7 @@
         if (savedYear) {
             if (savedYear == 2020) {
                 apodImage.src = "2020.jpg";
-                apodDescription.textContent = 'Ćubbb';
+                apodDescription.textContent = 'Ćub';
             } else {
                 getImage(savedYear);
                 yearSelect.value = savedYear;
@@ -137,7 +137,7 @@
         } else {
             if (savedYear == 2020) {
                 apodImage.src = "2020.jpg";
-                apodDescription.textContent = 'Ćubbb';
+                apodDescription.textContent = 'Ćub';
             } else {
                 getImage(savedYear);
             }
