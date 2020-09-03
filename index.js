@@ -19,7 +19,7 @@ const apodLink = document.getElementById('link');
 const apodDescription = document.getElementById('desc');
 
 async function getImage(year) {
-    let response = await fetch(`https://deo-tvog-univerzuma.netlify.app/.netlify/functions/service?year=${year}`);
+    let response = await fetch(`./.netlify/functions/service?year=${year}`);
     let data = await response.json();
 
     if (data.code) {
