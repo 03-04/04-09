@@ -9,13 +9,16 @@
         body {
             background-color: black;
             background-image: url("./background.png");
-            min-height: 100vh;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            text-align: center;
             color: rgb(54, 147, 253);
-            padding-top: 5rem;
+            min-height: 100vh;
+        }
+
+        #root {
+            display: flex;
+            flex-direction: column;
         }
 
         select {
@@ -30,6 +33,8 @@
             width: 22.275vw;
             transform: scale(4);
         }
+
+
 
         img,
         p {
