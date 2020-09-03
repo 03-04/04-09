@@ -109,7 +109,7 @@
         yearSelect.addEventListener('change', (e) => {
             let year = e.target.value;
 
-            if (year === 2020) {
+            if (year == 2020) {
                 apodImage.src = "2020.jpg";
                 apodDescription.textContent = 'Ćubbb';
             } else {
@@ -127,7 +127,7 @@
 
         let savedYear = localStorage.getItem('year');
         if (savedYear) {
-            if (savedYear === 2020) {
+            if (savedYear == 2020) {
                 apodImage.src = "2020.jpg";
                 apodDescription.textContent = 'Ćubbb';
             } else {
@@ -135,7 +135,7 @@
                 yearSelect.value = savedYear;
             }
         } else {
-            if (savedYear === 2020) {
+            if (savedYear == 2020) {
                 apodImage.src = "2020.jpg";
                 apodDescription.textContent = 'Ćubbb';
             } else {
