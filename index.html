@@ -16,7 +16,7 @@
             min-height: 100vh;
         }
 
-        #root {
+        .container {
             display: flex;
             flex-direction: column;
             align-items: stretch;
@@ -32,9 +32,9 @@
         }
 
 
-
         img,
-        p {
+        p,
+        h3 {
             background-color: rgb(10, 10, 10);
             border: 1px solid rgb(57, 57, 57);
             border-radius: 5px;
@@ -52,20 +52,20 @@
 </head>
 
 <body>
-    <div id="root">
+    <div class="container">
         <select id="years"></select>
+        <h3 id="desc-title">You reached for the secret too soon, you cried for the moon.
+            Shine on you crazy diamond!</h3>
         <a href="#" id="link">
             <img src="#" alt="" id="image">
         </a>
         <div id="desc">
-            <h3 id="desc-title">Opis</h3>
+
             <br>
             <p id="desc-text"></p>
         </div>
     </div>
     <script>
-        const root = document.getElementById('root');
-
         const yearSelect = document.getElementById('years');
         yearSelect.addEventListener('change', (e) => {
             let year = e.target.value;
