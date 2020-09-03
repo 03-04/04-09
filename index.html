@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delić tvog univerzuma</title>
     <style>
+        @font-face {
+            font-family: PM;
+            src: url(PermanentMarker-Regular.ttf);
+        }
+
         body {
             background-color: black;
             background-image: url("./background.png");
@@ -13,6 +18,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             color: rgb(54, 147, 253);
+            font-family: PM;
             min-height: 100vh;
         }
 
@@ -35,6 +41,7 @@
         img,
         p,
         h3 {
+            font-weight: normal;
             background-color: rgb(10, 10, 10);
             border: 1px solid rgb(57, 57, 57);
             border-radius: 5px;
@@ -55,7 +62,8 @@
     <div class="container">
         <select id="years"></select>
         <h3 id="desc-title">You reached for the secret too soon, you cried for the moon.
-            Shine on you crazy diamond!</h3>
+            <br>
+            <b>Shine on you crazy diamond!</b></h3>
         <a href="#" id="link">
             <img src="#" alt="" id="image">
         </a>
