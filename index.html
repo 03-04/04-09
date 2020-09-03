@@ -75,7 +75,7 @@
         const apodDescription = document.getElementById('desc');
 
         function getImage(year) {
-            fetch(`https://deo-tvog-univerzuma.netlify.app/.netlify/functions/service?year=${year}`)
+            fetch(`https://deo-tvog-univerzuma.netlify.app/.netlify/functions/service?year=${year}`, { mode: "no-cors" })
                 .then(res => res.json())
                 .then(data => {
                     if (data.code) {
