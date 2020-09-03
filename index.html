@@ -104,6 +104,11 @@
         const yearSelect = document.getElementById('years');
         yearSelect.addEventListener('change', (e) => {
             let year = e.target.value;
+
+            if (year === 2020) {
+                apodImage.src = "2020.jpg";
+                apodDescription.textContent = 'Ćubbb';
+            }
             getImage(year);
             localStorage.setItem('year', year);
         });
