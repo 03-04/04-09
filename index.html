@@ -108,10 +108,10 @@
             if (year === 2020) {
                 apodImage.src = "2020.jpg";
                 apodDescription.textContent = 'Ćubbb';
-                return;
+            } else {
+                getImage(year);
+                localStorage.setItem('year', year);
             }
-            getImage(year);
-            localStorage.setItem('year', year);
         });
 
         for (let i = 2020; i >= 1998; i--) {
