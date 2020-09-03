@@ -108,6 +108,7 @@
             if (year === 2020) {
                 apodImage.src = "2020.jpg";
                 apodDescription.textContent = 'Ćubbb';
+                return;
             }
             getImage(year);
             localStorage.setItem('year', year);
