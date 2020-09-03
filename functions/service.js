@@ -16,7 +16,6 @@ exports.handler = (event, context, response) => {
                 statusCode: 200,
                 header: {
                     'Access-Control-Allow-Origin': 'https://delic-tvog-univerzuma.netlify.app/',
-                    'Access-Control-Allow-Headers': 'Content-Type',
                     'Access-Control-Allow-Methods': 'GET'
                 },
                 body: body
